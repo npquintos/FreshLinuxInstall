@@ -53,7 +53,12 @@ done
 echo "Trying to install favourite apps"
 file="~/tempInstall/apps.$extension"
 while IFS= read -r line; do
-   eval "$cmd $line"
+    if ! is_already_installed $line
+      then
+        eval "$cmd $line"
+      else
+	echo "$line already installed"
+    fi
 done < "$file"
 
 echo "Trying to install oh-my-posh"
