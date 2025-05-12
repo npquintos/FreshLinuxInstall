@@ -52,14 +52,18 @@ done
 
 echo "Trying to install favourite apps"
 file="~/tempInstall/apps.$extension"
-while IFS= read -r line; do
+grep -v '^#' < "$file" |
+{
+while IFS= read -r line; 
+do
     if ! is_already_installed $line
       then
         eval "$cmd $line"
       else
 	echo "$line already installed"
     fi
-done < "$file"
+done;
+}
 
 echo "Trying to install oh-my-posh"
 curl -s https://ohmyposh.dev/install.sh | bash -s
