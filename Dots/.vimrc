@@ -147,7 +147,7 @@ map j gj
 map k gk
 
 " toggle commnting
-map <leader><leader> :call MyComment()<CR>
+map <leader>/ :call MyComment()<CR>
 
 " Disable highlight when space is pressed
 map <silent> <space> :noh<cr>
@@ -307,6 +307,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-fugitive'
 Plug 'vimwiki/vimwiki'
+Plugin 'easymotion/vim-easymotion'
 call plug#end()
 
 " Do not search unnecessarily for a match when hitting Ctrl-n
