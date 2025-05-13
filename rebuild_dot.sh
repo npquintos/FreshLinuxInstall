@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 # This is the only file that you download initially
-# You run it as "sudo bash rebuild_dot.sh".
+# You run it as "bash rebuild_dot.sh".
 # Then it will download your favourite apps and config
 # files for tmux and neovim and powerline.
 
@@ -27,13 +27,13 @@ cmd=""
 
 if is_installed pacman
 then
-    cmd="pacman -Syu"
+    cmd="sudo pacman -Syu"
     extension="arch"
 fi
 
 if is_installed apt-get
 then
-    cmd="apt-get install"
+    cmd="sudo apt-get install"
     extension="debian"
 fi
 
