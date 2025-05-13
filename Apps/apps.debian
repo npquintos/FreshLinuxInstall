@@ -1,13 +1,13 @@
 python3
 tmux
 neovim
-ninja-build
-meson
+# ninja-build
+# meson
 zsh
 tree
-clang
-vlc
-krita
+# clang
+# vlc
+# krita
 stterm
-cmake
-wget
+# cmake
+# wget
