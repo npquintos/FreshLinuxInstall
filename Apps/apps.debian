@@ -1,5 +1,7 @@
 python3
 tmux
+zip
+unzip
 lua
 neovim
 # ninja-build
