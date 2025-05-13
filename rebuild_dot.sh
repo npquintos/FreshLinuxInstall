@@ -5,25 +5,32 @@
 # Then it will download your favourite apps and config
 # files for tmux and neovim and powerline.
 
-is_already_installed() {
-    if command -v $1 2>&1 >/dev/null
+not_installed() {
+    return command -v $1 2>&1 >/dev/null
+}
+
+is_installed() {
+    return ! not_installed $1
+}
+
+install_if_missing() {
+    if not_installed $1
     then
-	# echo "returning 0 for $1"
-	return 0
+        eval "$cmd $1"
     else
-	# echo "returning 1 for $1"
-	return 1
+	echo "$1 already installed"
     fi
 }
 
 cmd=""
 
-if is_already_installed pacman
+if is_installed pacman
 then
     cmd="pacman -Syu"
     extension="arch"
 fi
-if is_already_installed apt-get
+
+if is_installed apt-get
 then
     cmd="apt-get install"
     extension="debian"
@@ -34,12 +41,7 @@ echo "Distro is $extension based."
 echo "Trying to install git and curl"
 for app in git curl;
 do
-    if ! is_already_installed $app
-    then
-        eval "$cmd $line"
-    else
-	echo "$app already installed"
-    fi
+    install_if_missing $app
 done
 
 git clone https://github.com/npquintos/FreshLinuxInstall.git ~/tempInstall
@@ -56,12 +58,7 @@ grep -v '^#' < "$file" |
 {
 while IFS= read -r line; 
 do
-    if ! is_already_installed $line
-      then
-        eval "$cmd $line"
-      else
-	echo "$line already installed"
-    fi
+    install_if_missing $line
 done;
 }
 
