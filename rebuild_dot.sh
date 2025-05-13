@@ -10,10 +10,15 @@ not_installed() {
     	return 1
     else
     	return 0
+    fi
 }
 
 is_installed() {
-    return ! not_installed $1
+    if command -v $1 2>&1 >/dev/null; then
+    	return 0
+    else
+    	return 1
+    fi    
 }
 
 install_if_missing() {
