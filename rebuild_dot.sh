@@ -6,8 +6,10 @@
 # files for tmux and neovim and powerline.
 
 not_installed() {
-    command -v $1 2>&1 >/dev/null
-    return $?
+    if command -v $1 2>&1 >/dev/null; then
+    	return 1
+    else
+    	return 0
 }
 
 is_installed() {
