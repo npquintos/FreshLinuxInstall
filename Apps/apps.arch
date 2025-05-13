@@ -2,13 +2,13 @@ yay
 python3
 tmux
 neovim
-ninja
-meson
+# ninja
+# meson
 zsh
 tree
-clang
-vlc
-krita
+# clang
+# vlc
+# krita
 st
-cmake
-wget
+# cmake
+# wget
