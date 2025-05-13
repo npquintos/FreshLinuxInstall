@@ -69,7 +69,7 @@ do
     install_if_missing $line
 done;
 }
-
+export PATH=$PATH:$HOME/.local/bin
 echo "Trying to install oh-my-posh"
 curl -s https://ohmyposh.dev/install.sh | bash -s
 
