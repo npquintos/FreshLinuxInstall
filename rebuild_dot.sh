@@ -30,6 +30,7 @@ install_if_missing() {
     fi
 }
 
+export PATH=$PATH:$HOME/.local/bin
 cmd=""
 
 if is_installed pacman
@@ -69,7 +70,10 @@ do
     install_if_missing $line
 done;
 }
-export PATH=$PATH:$HOME/.local/bin
+
+echo "Trying to install nerd fonts ComicShannsMono..."
+curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
+
 echo "Trying to install oh-my-posh"
 curl -s https://ohmyposh.dev/install.sh | bash -s
 
