@@ -1,5 +1,6 @@
 python3
 tmux
+lua
 neovim
 # ninja-build
 # meson
