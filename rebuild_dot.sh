@@ -61,7 +61,7 @@ do
 done
 
 echo "Trying to install favourite apps"
-file="~/tempInstall/apps.$extension"
+file="~/tempInstall/Apps/apps.$extension"
 grep -v '^#' < "$file" |
 {
 while IFS= read -r line; 
