@@ -11,7 +11,7 @@ not_installed() {
 }
 
 is_installed() {
-    return ! not_installed $1
+    return ! command -v $1 2>&1 >/dev/null
 }
 
 install_if_missing() {
