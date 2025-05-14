@@ -35,13 +35,13 @@ cmd=""
 
 if is_installed pacman
 then
-    cmd="sudo pacman -Syu"
+    cmd="sudo pacman -Syu --noconfirm"
     extension="arch"
 fi
 
 if is_installed apt-get
 then
-    cmd="sudo apt-get install"
+    cmd="sudo apt-get install -y"
     extension="debian"
 fi
 
@@ -53,16 +53,16 @@ do
     install_if_missing $app
 done
 
-git clone https://github.com/npquintos/FreshLinuxInstall.git ~/tempInstall
+git clone https://github.com/npquintos/FreshLinuxInstall.git $HOME/tempInstall
 
 echo "Copying the dot files ..."
-for conf in $(ls ~/tempInstall/Dots/.*);
+for conf in $(ls $HOME/tempInstall/Dots/.*);
 do
-    cp $conf ~/.
+    cp $conf $HOME/.
 done
 
 echo "Trying to install favourite apps"
-file="~/tempInstall/Apps/apps.$extension"
+file="$HOME/tempInstall/Apps/apps.$extension"
 grep -v '^#' < "$file" |
 {
 while IFS= read -r line; 
@@ -72,13 +72,28 @@ done;
 }
 
 echo "Trying to install nerd fonts ComicShannsMono..."
-curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
+
+FONTURL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/ComicShannsMono.zip"
+# Create a temporary directory
+TEMP_DIR=$(mktemp -d)
+
+# Download the font zip file
+wget -O "$TEMP_DIR/font.zip" "$FONTURL"
+
+# Unzip the font file
+unzip "$TEMP_DIR/font.zip" -d "$TEMP_DIR"
+
+# Move the font files to the system fonts directory
+sudo mv "$TEMP_DIR"/*.{ttf,otf} /usr/local/share/fonts/
+
+# Update the font cache
+fc-cache -f -v
 
 echo "Trying to install oh-my-posh"
 curl -s https://ohmyposh.dev/install.sh | bash -s
 
 echo "Copying Astronvim configuration ..."
-git clone https://github.com/npquintos/AstroNvimV5.git ~/.config/nvim
+git clone https://github.com/npquintos/AstroNvimV5.git $HOME/.config/nvim
 nvim
 
 echo "Cleaning up ..."
