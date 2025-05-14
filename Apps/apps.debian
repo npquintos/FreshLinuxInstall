@@ -1,18 +1,21 @@
+build-essential
+libssl-dev
+zlib1g-dev
 python3
 tmux
 zip
 unzip
 lua
 neovim
-ninja-build
-meson
+# ninja-build
+# meson
 zsh
-tree
-clang
-vlc
-krita
+# tree
+# clang
+# vlc
+# krita
 stterm
 cmake
 wget
-asunder
-nemo
+# asunder
+# nemo
