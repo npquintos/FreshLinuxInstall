@@ -72,16 +72,20 @@ done;
 }
 
 echo "Trying to install nerd fonts ComicShannsMono..."
-
-FONTURL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/ComicShannsMono.zip"
+FONTURL1="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraCode.zip"
+FONTURL2="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/ComicShannsMono.zip"
+FONTURL3="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/DaddyTimeMono.zip"
 # Create a temporary directory
 TEMP_DIR=$(mktemp -d)
 
 # Download the font zip file
-wget -O "$TEMP_DIR/font.zip" "$FONTURL"
-
-# Unzip the font file
-unzip "$TEMP_DIR/font.zip" -d "$TEMP_DIR"
+for font_url in $FONTURL1 $FONTURL2 $FONTURL3;
+do
+    wget -O "$TEMP_DIR/font.zip" "$font_url"
+    
+    # Unzip the font file
+    unzip "$TEMP_DIR/font.zip" -d "$TEMP_DIR"
+done
 
 # Move the font files to the system fonts directory
 sudo mv "$TEMP_DIR"/*.{ttf,otf} /usr/local/share/fonts/
