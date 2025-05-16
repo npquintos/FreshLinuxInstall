@@ -5,7 +5,7 @@ python3
 tmux
 zip
 unzip
-lua
+lua5.4
 neovim
 # ninja-build
 # meson
