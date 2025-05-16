@@ -61,6 +61,9 @@ do
     cp $conf $HOME/.
 done
 
+echo "Updating .bashrc to recognize tmx and tmuxn"
+cat $HOME/tempInstall/Dots/bashrc >> $HOME/.bashrc
+
 echo "Trying to install favourite apps"
 file="$HOME/tempInstall/Apps/apps.$extension"
 grep -v '^#' < "$file" |
