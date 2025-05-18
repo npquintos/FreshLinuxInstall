@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 # This is the only file that you download initially
-# You run it as "bash rebuild_dot.sh".
+# You run it as "bash rebuild_dot.sh | tee -a rebuild.log".
 # Then it will download your favourite apps and config
 # files for tmux and neovim and powerline.
 
