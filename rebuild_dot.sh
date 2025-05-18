@@ -96,6 +96,9 @@ sudo mv "$TEMP_DIR"/*.{ttf,otf} /usr/local/share/fonts/
 # Update the font cache
 fc-cache -f -v
 
+echo "Installing tree-sitter-cli"
+npm install tree-sitter-cli
+
 echo "Trying to install oh-my-posh"
 curl -s https://ohmyposh.dev/install.sh | bash -s
 
