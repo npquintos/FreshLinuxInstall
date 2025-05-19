@@ -62,6 +62,7 @@ do
     install_if_missing $app
 done
 
+delete_folder $HOME/tempInstall
 git clone https://github.com/npquintos/FreshLinuxInstall.git $HOME/tempInstall
 
 printf "\n-> -> -> -> -> -> -> Copying the dot files ..."
@@ -120,9 +121,10 @@ delete_folder $HOME/.cache/nvim
 
 printf "\n-> -> -> -> -> -> -> Copying Astronvim configuration ..."
 git clone https://github.com/npquintos/AstroNvimV5.git $HOME/.config/nvim
-nvim
+
 
 printf "\n-> -> -> -> -> -> -> Cleaning up ..."
-rm -rf tempInstall
+rm -rf $HOME/tempInstall
 
+nvim
 printf "\n-> -> -> -> -> -> -> Done. You are all set!"
