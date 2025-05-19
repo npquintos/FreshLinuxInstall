@@ -33,6 +33,7 @@ install_if_missing() {
 
 delete_folder() {
 if test -d $1; then
+  printf "\n\tdeleting $1"
   rm -rf $1
 fi
 }
@@ -57,6 +58,7 @@ printf "\n-> -> -> -> -> -> -> Distro is $extension based."
 printf "\n-> -> -> -> -> -> -> Trying to install git and curl"
 for app in git curl;
 do
+    printf "\n\tinstalling $app"
     install_if_missing $app
 done
 
@@ -65,6 +67,7 @@ git clone https://github.com/npquintos/FreshLinuxInstall.git $HOME/tempInstall
 printf "\n-> -> -> -> -> -> -> Copying the dot files ..."
 for conf in $(ls $HOME/tempInstall/Dots/.*);
 do
+    printf "\n\tcopying $conf"
     cp $conf $HOME/.
 done
 
@@ -115,11 +118,6 @@ delete_folder $HOME/.local/share/nvim
 delete_folder $HOME/.local/state/nvim
 delete_folder $HOME/.cache/nvim
 
-if test -d "/path/to/your/folder"; then
-  printf "Folder exists"
-else
-  printf "Folder does not exist"
-fi
 printf "\n-> -> -> -> -> -> -> Copying Astronvim configuration ..."
 git clone https://github.com/npquintos/AstroNvimV5.git $HOME/.config/nvim
 nvim
