@@ -21,3 +21,4 @@ wget
 # nemo
 npm
 luarocks
+ripgrep
