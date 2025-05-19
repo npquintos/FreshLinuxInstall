@@ -24,10 +24,10 @@ is_installed() {
 install_if_missing() {
     if not_installed $1
     then
-        echo "\n\t-> -> -> -> Installing $1 "
+        printf "\n\t-> -> -> -> Installing $1 "
         eval "$cmd $1"
     else
-	echo "\n\t-> -> -> -> $1 already installed"
+	printf "\n\t-> -> -> -> $1 already installed"
     fi
 }
 
@@ -52,9 +52,9 @@ then
     extension="debian"
 fi
 
-echo "\n-> -> -> -> -> -> -> Distro is $extension based."
+printf "\n-> -> -> -> -> -> -> Distro is $extension based."
 
-echo "\n-> -> -> -> -> -> -> Trying to install git and curl"
+printf "\n-> -> -> -> -> -> -> Trying to install git and curl"
 for app in git curl;
 do
     install_if_missing $app
@@ -62,16 +62,16 @@ done
 
 git clone https://github.com/npquintos/FreshLinuxInstall.git $HOME/tempInstall
 
-echo "\n-> -> -> -> -> -> -> Copying the dot files ..."
+printf "\n-> -> -> -> -> -> -> Copying the dot files ..."
 for conf in $(ls $HOME/tempInstall/Dots/.*);
 do
     cp $conf $HOME/.
 done
 
-echo "\n-> -> -> -> -> -> -> Updating .bashrc to recognize tmx and tmuxn"
+printf "\n-> -> -> -> -> -> -> Updating .bashrc to recognize tmx and tmuxn"
 cat $HOME/tempInstall/Dots/bashrc >> $HOME/.bashrc
 
-echo "\n-> -> -> -> -> -> -> Trying to install favourite apps"
+printf "\n-> -> -> -> -> -> -> Trying to install favourite apps"
 file="$HOME/tempInstall/Apps/apps.$extension"
 grep -v '^#' < "$file" |
 {
@@ -81,7 +81,7 @@ do
 done;
 }
 
-echo "\n-> -> -> -> -> -> -> Trying to install nerd fonts ComicShannsMono..."
+printf "\n-> -> -> -> -> -> -> Trying to install nerd fonts ComicShannsMono..."
 FONTURL1="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraCode.zip"
 FONTURL2="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/ComicShannsMono.zip"
 FONTURL3="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/DaddyTimeMono.zip"
@@ -103,28 +103,28 @@ sudo mv "$TEMP_DIR"/*.{ttf,otf} /usr/local/share/fonts/
 # Update the font cache
 fc-cache -f -v
 
-echo "\n-> -> -> -> -> -> -> Installing tree-sitter-cli"
+printf "\n-> -> -> -> -> -> -> Installing tree-sitter-cli"
 npm install tree-sitter-cli
 
-echo "\n-> -> -> -> -> -> -> Trying to install oh-my-posh"
+printf "\n-> -> -> -> -> -> -> Trying to install oh-my-posh"
 curl -s https://ohmyposh.dev/install.sh | bash -s
 
-echo "\n-> -> -> -> -> -> -> Cleaning up previous Astronvim configuration ..."
+printf "\n-> -> -> -> -> -> -> Cleaning up previous Astronvim configuration ..."
 delete_folder $HOME/.config/nvim
 delete_folder $HOME/.local/share/nvim
 delete_folder $HOME/.local/state/nvim
 delete_folder $HOME/.cache/nvim
 
 if test -d "/path/to/your/folder"; then
-  echo "Folder exists"
+  printf "Folder exists"
 else
-  echo "Folder does not exist"
+  printf "Folder does not exist"
 fi
-echo "\n-> -> -> -> -> -> -> Copying Astronvim configuration ..."
+printf "\n-> -> -> -> -> -> -> Copying Astronvim configuration ..."
 git clone https://github.com/npquintos/AstroNvimV5.git $HOME/.config/nvim
 nvim
 
-echo "\n-> -> -> -> -> -> -> Cleaning up ..."
+printf "\n-> -> -> -> -> -> -> Cleaning up ..."
 rm -rf tempInstall
 
-echo "\n-> -> -> -> -> -> -> Done. You are all set!"
+printf "\n-> -> -> -> -> -> -> Done. You are all set!"
