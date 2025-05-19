@@ -31,6 +31,12 @@ install_if_missing() {
     fi
 }
 
+delete_folder() {
+if test -d $1; then
+  rm -rf $1
+fi
+}
+
 export PATH=$PATH:$HOME/.local/bin
 cmd=""
 
@@ -103,6 +109,17 @@ npm install tree-sitter-cli
 echo "\n-> -> -> -> -> -> -> Trying to install oh-my-posh"
 curl -s https://ohmyposh.dev/install.sh | bash -s
 
+echo "\n-> -> -> -> -> -> -> Cleaning up previous Astronvim configuration ..."
+delete_folder $HOME/.config/nvim
+delete_folder $HOME/.local/share/nvim
+delete_folder $HOME/.local/state/nvim
+delete_folder $HOME/.cache/nvim
+
+if test -d "/path/to/your/folder"; then
+  echo "Folder exists"
+else
+  echo "Folder does not exist"
+fi
 echo "\n-> -> -> -> -> -> -> Copying Astronvim configuration ..."
 git clone https://github.com/npquintos/AstroNvimV5.git $HOME/.config/nvim
 nvim
