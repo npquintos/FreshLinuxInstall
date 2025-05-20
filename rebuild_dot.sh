@@ -26,6 +26,11 @@ install_if_missing() {
     then
         printf "\n\t-> -> -> -> Installing $1 "
         eval "$cmd $1"
+	if [ $? -eq 0 ]; then
+            echo "\n\t-> -> -> -> $1 installation successful"
+        else
+            echo "\n\t-> -> -> -> Failed to install $1
+        fi
     else
 	printf "\n\t-> -> -> -> $1 already installed"
     fi
