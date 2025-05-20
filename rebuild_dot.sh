@@ -90,6 +90,10 @@ do
     install_if_missing $line
 done;
 }
+printf "\n-> -> -> -> -> -> -> Downloading latest version of NeoVim"
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
+chmod u+x nvim-linux-x86_64.appimage
+ln -s $HOME/nvim-linux-x86_64.appimage $HOME/nvim
 
 printf "\n-> -> -> -> -> -> -> Trying to install nerd fonts ComicShannsMono..."
 FONTURL1="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraCode.zip"
