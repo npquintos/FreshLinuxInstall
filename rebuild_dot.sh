@@ -51,6 +51,7 @@ if is_installed apt-get
 then
     cmd="sudo apt-get install -y"
     extension="debian"
+    sudo apt-get update
 fi
 
 printf "\n-> -> -> -> -> -> -> Distro is $extension based."
