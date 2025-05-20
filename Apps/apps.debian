@@ -6,7 +6,7 @@ tmux
 zip
 unzip
 lua5.4
-neovim
+fuse
 # ninja-build
 # meson
 zsh
