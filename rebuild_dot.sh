@@ -21,16 +21,20 @@ is_installed() {
     fi    
 }
 
+execute_command() {
+    printf "\n\t-> -> -> -> Executing -> $1 "
+    eval "$1"
+    if [ $? -eq 0 ]; then
+        printf "\n\t-> -> -> -> $1 -> successful"
+    else
+        printf "\n\t-> -> -> -> $1 -> FAILED !!!"
+    fi
+}
+
 install_if_missing() {
     if not_installed $1
     then
-        printf "\n\t-> -> -> -> Installing $1 "
-        eval "$cmd $1"
-	if [ $? -eq 0 ]; then
-            printf "\n\t-> -> -> -> $1 installation successful"
-        else
-            printf "\n\t-> -> -> -> Failed to install $1"
-        fi
+        execute_command "$cmd $1"
     else
 	printf "\n\t-> -> -> -> $1 already installed"
     fi
@@ -64,7 +68,6 @@ printf "\n-> -> -> -> -> -> -> Distro is $extension based."
 printf "\n-> -> -> -> -> -> -> Trying to install git and curl"
 for app in git curl;
 do
-    printf "\n\tinstalling $app"
     install_if_missing $app
 done
 
@@ -91,9 +94,9 @@ do
 done;
 }
 printf "\n-> -> -> -> -> -> -> Downloading latest version of NeoVim"
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
+execute_command "curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage"
 chmod u+x nvim-linux-x86_64.appimage
-ln -s $HOME/nvim-linux-x86_64.appimage $HOME/nvim
+execute_command "sudo ln -s $HOME/nvim-linux-x86_64.appimage /usr/bin/nvim"
 
 printf "\n-> -> -> -> -> -> -> Trying to install nerd fonts ComicShannsMono..."
 FONTURL1="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraCode.zip"
@@ -115,13 +118,13 @@ done
 sudo mv "$TEMP_DIR"/*.{ttf,otf} /usr/local/share/fonts/
 
 # Update the font cache
-fc-cache -f -v
+execute_command "fc-cache -f -v"
 
 printf "\n-> -> -> -> -> -> -> Installing tree-sitter-cli"
-npm install tree-sitter-cli
+execute_command "npm install tree-sitter-cli"
 
 printf "\n-> -> -> -> -> -> -> Trying to install oh-my-posh"
-curl -s https://ohmyposh.dev/install.sh | bash -s
+execute_command "curl -s https://ohmyposh.dev/install.sh | bash -s"
 
 printf "\n-> -> -> -> -> -> -> Cleaning up previous Astronvim configuration ..."
 delete_folder $HOME/.config/nvim
@@ -130,11 +133,11 @@ delete_folder $HOME/.local/state/nvim
 delete_folder $HOME/.cache/nvim
 
 printf "\n-> -> -> -> -> -> -> Copying Astronvim configuration ..."
-git clone https://github.com/npquintos/AstroNvimV5.git $HOME/.config/nvim
+execute_command "git clone https://github.com/npquintos/AstroNvimV5.git $HOME/.config/nvim"
 
 
 printf "\n-> -> -> -> -> -> -> Cleaning up ..."
-rm -rf $HOME/tempInstall
+execute_command "rm -rf $HOME/tempInstall"
 
 nvim
 printf "\n-> -> -> -> -> -> -> Done. You are all set!"
