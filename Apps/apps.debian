@@ -21,6 +21,5 @@ wget
 # nemo
 npm
 luarocks
-neovim
 vim
 ripgrep
