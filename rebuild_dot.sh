@@ -73,6 +73,7 @@ done
 
 delete_folder $HOME/tempInstall
 git clone https://github.com/npquintos/FreshLinuxInstall.git $HOME/tempInstall
+git clone https://github.com/aperezdc/zsh-fzy $HOME/tempInstall
 
 printf "\n-> -> -> -> -> -> -> Copying the dot files ..."
 for conf in $(ls $HOME/tempInstall/Dots/.*);
@@ -125,6 +126,8 @@ execute_command "npm install tree-sitter-cli"
 
 printf "\n-> -> -> -> -> -> -> Trying to install oh-my-posh"
 execute_command "curl -s https://ohmyposh.dev/install.sh | bash -s"
+execute_command "cp $HOME/tempInstall/zsh-fzy.plugin.zsh $HOME/.local/bin/."
+execute_command "cp $HOME/tempInstall/fzy-tmux $HOME/.local/bin/."
 
 printf "\n-> -> -> -> -> -> -> Cleaning up previous Astronvim configuration ..."
 delete_folder $HOME/.config/nvim
