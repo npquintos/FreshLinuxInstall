@@ -222,7 +222,7 @@ zstyle :fzy:proc    lines        50
 zstyle :fzy:proc    prompt       'proc >> '
 zstyle :fzy:proc    command      fzy-proc-default-command
 
-path+=$HOME/.local/bin
+path+=('$HOME/.local/bin')
 # source z plugin
 # . ./z.sh
 
