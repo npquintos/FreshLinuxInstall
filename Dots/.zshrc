@@ -19,14 +19,14 @@ precmd() {  # run before each prompt
 ##
 # Prompt
 ##
-setopt PROMPT_SUBST     # allow funky stuff in prompt
-color="blue"
-if [ "$USER" = "root" ]; then
-    color="red"         # root is red, user is blue
-fi;
-prompt='%{%K{blue}%}%{%F{white}%}%d%{$my_branch%}%{%F{red}%}%{$my_portion%}%{%F{white}%}%{$my_close%}%{$reset_color%}
-%{$reset_color%}%{⊳%} '
-RPROMPT='$FG[237]%n@%m%{$reset_color%}'
+# setopt PROMPT_SUBST     # allow funky stuff in prompt
+# color="blue"
+# if [ "$USER" = "root" ]; then
+#    color="red"         # root is red, user is blue
+# fi;
+# prompt='%{%K{blue}%}%{%F{white}%}%d%{$my_branch%}%{%F{red}%}%{$my_portion%}%{%F{white}%}%{$my_close%}%{$reset_color%}
+# %{$reset_color%}%{⊳%} '
+# RPROMPT='$FG[237]%n@%m%{$reset_color%}'
 
 bindkey -v                      # vi keybinding
 export KEYTIMEOUT=1
