@@ -225,7 +225,7 @@ zstyle :fzy:proc    command      fzy-proc-default-command
 path+=('$HOME/.local/bin')
 # source z plugin
 # . ./z.sh
-eval "$(oh-my-posh init zsh --config https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/atomic.omp.json)"
+eval "$(oh-my-posh init zsh --config https://github.com/npquintos/FreshLinuxInstall/blob/main/Dots/p53.omp.json)"
 
 # Custom Functions
 function qfind() {
