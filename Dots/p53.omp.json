@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "blocks": [
     {
       "alignment": "left",
@@ -9,8 +9,8 @@
           "foreground": "#ffffff",
           "leading_diamond": "\u256d\u2500\ue0b6",
           "style": "diamond",
-          "template": "{{ .UserName }}@{{ .HostName }}",
-          "type": "session"
+          "template": "\uf120 {{ .Name }} ",
+          "type": "shell"
         },
         {
           "background": "#ef5350",
@@ -26,9 +26,7 @@
           "properties": {
             "folder_icon": " \uf07b ",
             "home_icon": "\ue617",
-            "max_depth": "5",
-            "max_width": "4",
-            "style": "fish"
+            "style": "folder"
           },
           "style": "powerline",
           "template": " \uf07b\uea9c {{ .Path }} ",
