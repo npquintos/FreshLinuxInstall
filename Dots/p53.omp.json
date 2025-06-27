@@ -26,8 +26,8 @@
           "properties": {
             "folder_icon": " \uf07b ",
             "home_icon": "\ue617",
-            "max_depth": 5,
-            "max_width": 4,
+            "max_depth": "5",
+            "max_width": "4",
             "style": "fish"
           },
           "style": "powerline",
