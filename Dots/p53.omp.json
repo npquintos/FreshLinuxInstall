@@ -9,7 +9,7 @@
           "foreground": "#ffffff",
           "leading_diamond": "\u256d\u2500\ue0b6",
           "style": "diamond",
-          "template": {{ .UserName }}@{{ .HostName }},
+          "template": "{{ .UserName }}@{{ .HostName }}",
           "type": "session"
         },
         {
@@ -28,7 +28,7 @@
             "home_icon": "\ue617",
             "max_depth": 5,
             "max_width": 4,
-            "style": fish
+            "style": "fish"
           },
           "style": "powerline",
           "template": " \uf07b\uea9c {{ .Path }} ",
