@@ -209,7 +209,7 @@ blocks:
           always_enabled: true
           template: ' '
           foreground: '#e0f8ff'
-          type: status
+          type: text
           style: plain
           foreground_templates:
             - '{{ if gt .Code 0 }}#ef5350{{ end }}'
