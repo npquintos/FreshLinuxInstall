@@ -208,7 +208,6 @@ blocks:
         - properties:
           always_enabled: true
           template: ' '
-          # template: ' '
           foreground: '#e0f8ff'
           type: status
           style: plain
