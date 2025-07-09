@@ -265,7 +265,7 @@
         {
           "foreground": "#21c7c7",
           "style": "plain",
-          "template": " ",
+          "template": "\uec15 ",
           "type": "text"
         },
         {
