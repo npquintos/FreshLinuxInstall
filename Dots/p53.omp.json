@@ -263,19 +263,13 @@
       "newline": true,
       "segments": [
         {
-          "foreground": "#21c7c7",
-          "style": "plain",
-          "template": "\uec15 ",
-          "type": "text"
-        },
-        {
           "foreground": "#e0f8ff",
           "foreground_templates": ["{{ if gt .Code 0 }}#ef5350{{ end }}"],
           "properties": {
             "always_enabled": true
           },
           "style": "plain",
-          "template": "\ue285\ueab6 ",
+          "template": "\uec15 ",
           "type": "status"
         }
       ],
