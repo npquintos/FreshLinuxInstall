@@ -232,7 +232,6 @@ function qfind() {
     /usr/bin/find -name "*$@*" -print 2>/dev/null
 }
 
-
 # use tmux as default shell
 if command -v tmux > /dev/null; then
     [[ $TERM != "screen" ]] && [ -z $TMUX  ] && (tmux a -t `whoami`_session || exec tmux new -s `whoami`_session)
