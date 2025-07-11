@@ -208,10 +208,11 @@ blocks:
         - properties:
           always_enabled: true
           template: ' '
-          foreground: '#e0f8ff'
+          foreground: '#FFFB38'
+          background: '#ef5350'
           type: status
           style: plain
-          foreground_templates:
-            - '{{ if gt .Code 0 }}#ef5350{{ end }}'
+          background_templates:
+            - '{{ if .Error }}#fc035e{{ end }}'
       newline: true
 version: 3
