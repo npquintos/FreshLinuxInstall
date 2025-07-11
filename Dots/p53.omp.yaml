@@ -207,9 +207,9 @@ blocks:
       segments:
         - properties:
           always_enabled: true
-        leading_diamond: 
+          leading_diamond: 
           trailing_diamond: 
-          template: '<#FFFB38> '
+          template: <#FFFB38>
           foreground: '#FFFB38'
           background: '#ef5350'
           type: status
