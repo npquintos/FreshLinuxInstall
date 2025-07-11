@@ -213,6 +213,6 @@ blocks:
           type: status
           style: plain
           background_templates:
-            - '{{ if .Error }}#fc035e{{ end }}'
+            - '{{ if .Error }}#fc035e{{ else }}#ef5350{{ end }}'
       newline: true
 version: 3
