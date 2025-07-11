@@ -207,11 +207,13 @@ blocks:
       segments:
         - properties:
           always_enabled: true
-          template: ' '
+        leading_diamond: 
+          trailing_diamond: 
+          template: '<#FFFB38> '
           foreground: '#FFFB38'
           background: '#ef5350'
           type: status
-          style: plain
+          style: diamond
           background_templates:
             - '{{ if .Error }}#fc035e{{ else }}#ef5350{{ end }}'
       newline: true
