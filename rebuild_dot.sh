@@ -52,7 +52,8 @@ cmd=""
 
 if is_installed pacman
 then
-    cmd="sudo pacman -Syu --noconfirm"
+    sudo pacman -Syu --noconfirm
+    cmd="sudo pacman -S --noconfirm"
     extension="arch"
 fi
 
@@ -142,5 +143,4 @@ execute_command "git clone https://github.com/npquintos/AstroNvimV5.git $HOME/.c
 printf "\n-> -> -> -> -> -> -> Cleaning up ..."
 execute_command "rm -rf $HOME/tempInstall"
 
-nvim
-printf "\n-> -> -> -> -> -> -> Done. You are all set!"
+printf "\n-> -> -> -> -> -> -> Done. You are all set! Run nvim first"
