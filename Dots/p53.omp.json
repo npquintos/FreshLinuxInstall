@@ -9,8 +9,8 @@
           "foreground": "#ffffff",
           "leading_diamond": "\u256d\u2500\ue0b6",
           "style": "diamond",
-          "template": "\uf120 {{ .UserName }}@{{ .HostName }} ",
-          "type": "session"
+          "template": "\uf120 {{ .Name }} ",
+          "type": "shell"
         },
         {
           "background": "#ef5350",
@@ -26,7 +26,7 @@
           "properties": {
             "folder_icon": " \uf07b ",
             "home_icon": "\ue617",
-            "style": "full"
+            "style": "folder"
           },
           "style": "powerline",
           "template": " \uf07b\uea9c {{ .Path }} ",
@@ -263,13 +263,19 @@
       "newline": true,
       "segments": [
         {
+          "foreground": "#21c7c7",
+          "style": "plain",
+          "template": "\u2570\u2500",
+          "type": "text"
+        },
+        {
           "foreground": "#e0f8ff",
           "foreground_templates": ["{{ if gt .Code 0 }}#ef5350{{ end }}"],
           "properties": {
             "always_enabled": true
           },
           "style": "plain",
-          "template": "\uec15 ",
+          "template": "\ue285\ueab6 ",
           "type": "status"
         }
       ],
