@@ -15,7 +15,7 @@
           "background": "#83769c",
           "foreground": "#ffffff",
           "style": "powerline",
-          "template": "{{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }},
+          "template": "{{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }}",
           "type": "session"
         },
         {
