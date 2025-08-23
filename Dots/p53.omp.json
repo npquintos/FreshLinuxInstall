@@ -5,19 +5,18 @@
       "alignment": "left",
       "segments": [
         {
-          "background": "#0077c2",
-          "foreground": "#ffffff",
-          "leading_diamond": "\u256d\u2500\ue0b6",
-          "style": "diamond",
-          "template": "\uf120 {{ .Name }} ",
-          "type": "shell"
-        },
-        {
           "background": "#ef5350",
           "foreground": "#FFFB38",
           "style": "diamond",
           "template": "<parentBackground>\ue0b0</> \uf292 ",
           "type": "root"
+        },
+        {
+          "background": "#83769c",
+          "foreground": "#ffffff",
+          "style": "powerline",
+          "template": "{{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }},
+          "type": "session"
         },
         {
           "background": "#FF9248",
@@ -26,7 +25,7 @@
           "properties": {
             "folder_icon": " \uf07b ",
             "home_icon": "\ue617",
-            "style": "folder"
+            "style": "full"
           },
           "style": "powerline",
           "template": " \uf07b\uea9c {{ .Path }} ",
@@ -50,18 +49,6 @@
           "style": "powerline",
           "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}<#ef5350> \uf046 {{ .Staging.String }}</>{{ end }} ",
           "type": "git"
-        },
-        {
-          "background": "#83769c",
-          "foreground": "#ffffff",
-          "properties": {
-            "style": "roundrock",
-            "threshold": 0
-          },
-          "style": "diamond",
-          "template": " \ueba2 {{ .FormattedMs }}\u2800",
-          "trailing_diamond": "\ue0b4",
-          "type": "executiontime"
         }
       ],
       "type": "prompt"
@@ -263,19 +250,13 @@
       "newline": true,
       "segments": [
         {
-          "foreground": "#21c7c7",
-          "style": "plain",
-          "template": "\u2570\u2500",
-          "type": "text"
-        },
-        {
           "foreground": "#e0f8ff",
           "foreground_templates": ["{{ if gt .Code 0 }}#ef5350{{ end }}"],
           "properties": {
             "always_enabled": true
           },
           "style": "plain",
-          "template": "\ue285\ueab6 ",
+          "template": "\uec15 ",
           "type": "status"
         }
       ],
