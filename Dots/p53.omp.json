@@ -12,7 +12,7 @@
           "type": "root"
         },
         {
-          "background": "#83769c",
+          "background": "#0077c2",
           "foreground": "#ffffff",
           "style": "powerline",
           "template": "{{ if .SSHSession }}\ueba9 {{ end }}@{{ .HostName }}",
