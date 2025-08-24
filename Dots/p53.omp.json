@@ -8,13 +8,15 @@
           "background": "#ef5350",
           "foreground": "#FFFB38",
           "style": "diamond",
+          "leading_diamond": "\u256d\u2500\ue0b6",
           "template": "<parentBackground>\ue0b0</> \uf292 ",
           "type": "root"
         },
         {
           "background": "#0077c2",
           "foreground": "#ffffff",
-          "style": "powerline",
+          "leading_diamond": "\u256d\u2500\ue0b6",
+          "style": "diamond",
           "template": "{{ if .SSHSession }}\ueba9 {{ end }}@{{ .HostName }}",
           "type": "session"
         },
