@@ -23,8 +23,6 @@
           "foreground": "#2d3436",
           "powerline_symbol": "\ue0b0",
           "properties": {
-            "folder_icon": " \uf07b ",
-            "home_icon": "\ue617",
             "style": "full"
           },
           "style": "powerline",
