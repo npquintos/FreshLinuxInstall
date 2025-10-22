@@ -221,7 +221,8 @@ zstyle :fzy:proc    show-scores  no
 zstyle :fzy:proc    lines        50
 zstyle :fzy:proc    prompt       'proc >> '
 zstyle :fzy:proc    command      fzy-proc-default-command
-
+export terminal="st"
+export editor = "nvim"
 path+=('$HOME/.local/bin')
 # source z plugin
 # . ./z.sh
