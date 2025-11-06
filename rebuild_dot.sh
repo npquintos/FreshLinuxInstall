@@ -101,14 +101,12 @@ chmod u+x nvim-linux-x86_64.appimage
 execute_command "sudo ln -s $HOME/nvim-linux-x86_64.appimage /usr/bin/nvim"
 
 printf "\n-> -> -> -> -> -> -> Trying to install nerd fonts ComicShannsMono..."
-FONTURL1="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraCode.zip"
 FONTURL2="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/ComicShannsMono.zip"
-FONTURL3="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/DaddyTimeMono.zip"
 # Create a temporary directory
 TEMP_DIR=$(mktemp -d)
 
 # Download the font zip file
-for font_url in $FONTURL1 $FONTURL2 $FONTURL3;
+for font_url in $FONTURL2;
 do
     wget -O "$TEMP_DIR/font.zip" "$font_url"
     
