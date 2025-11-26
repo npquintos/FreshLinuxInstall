@@ -137,6 +137,8 @@ delete_folder $HOME/.cache/nvim
 printf "\n-> -> -> -> -> -> -> Copying Astronvim configuration ..."
 execute_command "git clone https://github.com/npquintos/AstroNvimV5.git $HOME/.config/nvim"
 
+printf "\n-> -> -> -> -> -> -> Installing viscinae ..."
+execute_command "yay -S vicinae-bin"
 
 printf "\n-> -> -> -> -> -> -> Cleaning up ..."
 execute_command "rm -rf $HOME/tempInstall"
